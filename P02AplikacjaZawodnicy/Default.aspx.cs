@@ -17,11 +17,35 @@ namespace P02AplikacjaZawodnicy
 
         protected void btnWczytaj_Click(object sender, EventArgs e)
         {
+            Odswiez();
+        }
+
+        protected void btnDodaj_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnEdytuj_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(lbDane.SelectedValue);
+            Response.Redirect("SzczegolyView.aspx?id="+id);
+        }
+
+        protected void btnUsun_Click(object sender, EventArgs e)
+        {
+            ZawodnicyRepository zr = new ZawodnicyRepository();
+            int id = Convert.ToInt32(lbDane.SelectedValue);
+            zr.Usun(id);
+            Odswiez();
+        }
+        private void Odswiez()
+        {
             ZawodnicyRepository zr = new ZawodnicyRepository();
             zr.Wczytaj();
 
             lbDane.DataSource = zr.Zawodnicy;
             lbDane.DataTextField = "ImieNazwisko";
+            lbDane.DataValueField = "Id_zawodnika";
             lbDane.DataBind();
         }
     }

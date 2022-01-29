@@ -30,9 +30,12 @@ namespace P03AplikacjaZawodnicy.Core.Repositories
                 Waga= (int)x.waga,
                 Wzrost = (int)x.wzrost
             })
-                .ToArray();
-           
-             
+                .ToArray();     
+        }
+
+        public ZawodnikVM PodajZawodnika(int id)
+        {
+           return Zawodnicy.FirstOrDefault(x => x.Id_zawodnika == id);
         }
 
         public void Dodaj(ZawodnikVM z)

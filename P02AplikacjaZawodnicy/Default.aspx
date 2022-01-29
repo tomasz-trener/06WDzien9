@@ -7,10 +7,31 @@
     <title></title>
 </head>
 <body>
+
+    <style>
+        .dvOpcje input{
+            width:100px;
+            margin-top:5px;
+        }
+
+        select{
+            height:400px;
+        }
+    </style>
+
     <form id="form1" runat="server">
        
-        <asp:Button ID="btnWczytaj" OnClick="btnWczytaj_Click" runat="server" Text="Button" /> <br />
-        <asp:ListBox ID="lbDane" runat="server"></asp:ListBox>
+        <div style="float:left; margin-right:10px">
+             <asp:ListBox ID="lbDane" runat="server"></asp:ListBox>
+        </div>
+        <div class="dvOpcje"  >
+            <asp:Button ID="btnWczytaj" OnClick="btnWczytaj_Click" runat="server" Text="Wczytaj" /> <br />
+            <asp:Button ID="btnDodaj" OnClick="btnDodaj_Click" runat="server" Text="Dodaj" /> <br />
+            <asp:Button ID="btnEdytuj" OnClick="btnEdytuj_Click" runat="server" Text="Edytuj" /> <br />
+            <asp:Button ID="btnUsun" OnClick="btnUsun_Click" runat="server" Text="Usun" /> <br />
+        </div>
+        
+       
 
 
     </form>

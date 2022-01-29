@@ -11,7 +11,7 @@ namespace P02AplikacjaZawodnicy
 {
 
 
-    public partial class Default
+    public partial class SzczegolyView
     {
 
         /// <summary>
@@ -24,48 +24,66 @@ namespace P02AplikacjaZawodnicy
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lbDane control.
+        /// txtImie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbDane;
+        protected global::System.Web.UI.WebControls.TextBox txtImie;
 
         /// <summary>
-        /// btnWczytaj control.
+        /// txtNazwisko control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnWczytaj;
+        protected global::System.Web.UI.WebControls.TextBox txtNazwisko;
 
         /// <summary>
-        /// btnDodaj control.
+        /// txtKraj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDodaj;
+        protected global::System.Web.UI.WebControls.TextBox txtKraj;
 
         /// <summary>
-        /// btnEdytuj control.
+        /// calDataUrodzenia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEdytuj;
+        protected global::System.Web.UI.WebControls.Calendar calDataUrodzenia;
 
         /// <summary>
-        /// btnUsun control.
+        /// txtWaga control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUsun;
+        protected global::System.Web.UI.WebControls.TextBox txtWaga;
+
+        /// <summary>
+        /// txtWzrost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtWzrost;
+
+        /// <summary>
+        /// btnZapisz control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnZapisz;
     }
 }

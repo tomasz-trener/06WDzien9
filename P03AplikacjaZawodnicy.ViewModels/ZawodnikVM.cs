@@ -9,7 +9,7 @@ namespace P03AplikacjaZawodnicy.ViewModels
 {
     public class ZawodnikVM
     {
-        public int Id_zawodnika;
+        public int Id_zawodnika { get; set; }
         public int? Id_trenera; //dodanie ? powoduje, że typ jest nullable 
         public string Imie; // string jest domyślnie nullable ?
         public string Nazwisko;
