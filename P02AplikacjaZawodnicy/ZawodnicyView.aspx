@@ -179,7 +179,7 @@
                                             <% for (int i = 0; i < ZawodnicyData.Length; i++)
                                                 {%>
                                             <tr>
-                                                <td><%=ZawodnicyData[i].ImieNazwisko %>
+                                                <td><a href="SzczegolyNowe.aspx?id=<%=ZawodnicyData[i].Id_zawodnika %>"> <%=ZawodnicyData[i].ImieNazwisko %></a>
                                                  </td>
                                                 <td><%=ZawodnicyData[i].Kraj %>
                                                     </td>

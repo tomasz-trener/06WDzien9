@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace P02AplikacjaZawodnicy
 {
-    public partial class SzczegolyView : System.Web.UI.Page
+    public partial class SzczegolyNowe : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +25,7 @@ namespace P02AplikacjaZawodnicy
                 txtImie.Text = z.Imie;
                 txtNazwisko.Text = z.Nazwisko;
                 txtKraj.Text = z.Kraj;
-                calDataUrodzenia.SelectedDate = calDataUrodzenia.VisibleDate = z.DataUrodzenia;
+                txtDataUr.Text = z.DataUrodzenia.ToString("dd-MM-yyyy");
                 txtWaga.Text = z.Waga.ToString();
                 txtWzrost.Text = z.Wzrost.ToString();
             }
@@ -36,12 +36,12 @@ namespace P02AplikacjaZawodnicy
             string idString = Request["id"];
 
             ZawodnicyRepository zr = new ZawodnicyRepository();
-           
+
             ZawodnikVM z = new ZawodnikVM();
             z.Imie = txtImie.Text;
             z.Nazwisko = txtNazwisko.Text;
-            z.Kraj= txtKraj.Text;
-            z.DataUrodzenia = calDataUrodzenia.SelectedDate;
+            z.Kraj = txtKraj.Text;
+            z.DataUrodzenia = Convert.ToDateTime(txtDataUr.Text);
             z.Wzrost = Convert.ToInt32(txtWzrost.Text);
             z.Waga = Convert.ToInt32(txtWaga.Text);
 
@@ -53,8 +53,8 @@ namespace P02AplikacjaZawodnicy
                 z.Id_zawodnika = id;
                 zr.Edytuj(z);
             }
-           
-            Response.Redirect("Default.aspx");
+
+            Response.Redirect("ZawodnicyView.aspx");
         }
     }
 }
