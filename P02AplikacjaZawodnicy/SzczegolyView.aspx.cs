@@ -13,9 +13,10 @@ namespace P02AplikacjaZawodnicy
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            string idString = Request["id"];
+            if (!Page.IsPostBack && !string.IsNullOrEmpty(idString))
             {
-                int id = Convert.ToInt32(Request["id"]);
+                int id = Convert.ToInt32(idString);
 
                 ZawodnicyRepository zr = new ZawodnicyRepository();
                 zr.Wczytaj();
@@ -24,7 +25,7 @@ namespace P02AplikacjaZawodnicy
                 txtImie.Text = z.Imie;
                 txtNazwisko.Text = z.Nazwisko;
                 txtKraj.Text = z.Kraj;
-                calDataUrodzenia.SelectedDate = z.DataUrodzenia;
+                calDataUrodzenia.SelectedDate = calDataUrodzenia.VisibleDate = z.DataUrodzenia;
                 txtWaga.Text = z.Waga.ToString();
                 txtWzrost.Text = z.Wzrost.ToString();
             }
@@ -35,10 +36,11 @@ namespace P02AplikacjaZawodnicy
 
         protected void btnZapisz_Click(object sender, EventArgs e)
         {
+            string idString = Request["id"];
+
             ZawodnicyRepository zr = new ZawodnicyRepository();
-            int id = Convert.ToInt32(Request["id"]);
+           
             ZawodnikVM z = new ZawodnikVM();
-            z.Id_zawodnika = id;
             z.Imie = txtImie.Text;
             z.Nazwisko = txtNazwisko.Text;
             z.Kraj= txtKraj.Text;
@@ -46,8 +48,15 @@ namespace P02AplikacjaZawodnicy
             z.Wzrost = Convert.ToInt32(txtWzrost.Text);
             z.Waga = Convert.ToInt32(txtWaga.Text);
 
-            zr.Edytuj(z);
-
+            if (string.IsNullOrEmpty(idString)) // jestesmy w trybie dodwania bo id w request jest puste 
+                zr.Dodaj(z);
+            else // jezeli id nie jest puste to jestesmy w trybie edycji 
+            {
+                int id = Convert.ToInt32(idString);
+                z.Id_zawodnika = id;
+                zr.Edytuj(z);
+            }
+           
             Response.Redirect("Default.aspx");
         }
     }

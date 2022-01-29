@@ -12,7 +12,8 @@ namespace P02AplikacjaZawodnicy
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!Page.IsPostBack)
+                Odswiez();
         }
 
         protected void btnWczytaj_Click(object sender, EventArgs e)
@@ -22,7 +23,7 @@ namespace P02AplikacjaZawodnicy
 
         protected void btnDodaj_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("SzczegolyView.aspx");
         }
 
         protected void btnEdytuj_Click(object sender, EventArgs e)
