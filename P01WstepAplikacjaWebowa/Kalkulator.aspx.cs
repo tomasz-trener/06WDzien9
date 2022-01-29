@@ -13,5 +13,22 @@ namespace P01WstepAplikacjaWebowa
         {
 
         }
+
+        protected void btnJeden_Click(object sender, EventArgs e)
+        {
+            txtWyswietlacz.Text += "1";
+        }
+
+        protected void btnPrzycisk_Click(object sender, EventArgs e)
+        {
+             txtWyswietlacz.Text+= ((Button)sender).Text;
+        }
+
+        protected void btnRownasie_Click(object sender, EventArgs e)
+        {
+            Tools.Kalkulator k = new Tools.Kalkulator();
+            int wynik= k.PodajWynik(txtWyswietlacz.Text);
+            txtWyswietlacz.Text = Convert.ToString(wynik);
+        }
     }
 }

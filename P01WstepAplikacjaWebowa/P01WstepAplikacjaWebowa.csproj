@@ -86,6 +86,7 @@
     <Compile Include="Kalkulator.aspx.designer.cs">
       <DependentUpon>Kalkulator.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tools\Kalkulator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
