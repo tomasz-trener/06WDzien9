@@ -190,7 +190,7 @@
                       <div class="form-group">
                         <label>DataUr</label>
                          <asp:TextBox ID="txtDataUr" CssClass="form-control" runat="server"></asp:TextBox>
-                      </div>
+                     </div>
                     </div>
                   </div>
     
@@ -210,8 +210,11 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-12">
-                        <asp:Button ID="btnZapisz" CssClass="btn btn-primary btn-block" OnClick="btnZapisz_Click" runat="server" Text="Zapisz" />
+                    <div class="col-md-6">
+                        <asp:Button ID="btnZapisz" CssClass="btn btn-primary btn-block" OnClick="btnZapisz_Click" runat="server" Text="Zapisz"/>
+                    </div>
+                      <div class="col-md-6">
+                        <asp:Button ID="btnUsun" CssClass="btn btn-primary btn-block" OnClick="btnUsun_Click" runat="server" Text="Usuń"/>
                     </div>
                   </div>
                 </form>
@@ -227,7 +230,8 @@
                 <div class="author">
                   <a href="#">
                     <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
-                    <h5 class="title">Mike Andrew</h5>
+                    <h5 class="title">
+                        <asp:Label ID="lblImieNazwisko" runat="server" Text=""></asp:Label> </h5>
                   </a>
                   <p class="description">
                     michael24

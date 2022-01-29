@@ -13,22 +13,33 @@ namespace P02AplikacjaZawodnicy
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        
             string idString = Request["id"];
-            if (!Page.IsPostBack && !string.IsNullOrEmpty(idString))
+            if (!Page.IsPostBack)  // jezeli to nie jest postback czyli jest to pierwsze zaladowanie strony
             {
-                int id = Convert.ToInt32(idString);
+                if (!string.IsNullOrEmpty(idString)) // i jednoczesnie jestesmy w trybie edycji 
+                {
+                    int id = Convert.ToInt32(idString);
 
-                ZawodnicyRepository zr = new ZawodnicyRepository();
-                zr.Wczytaj();
-                var z = zr.PodajZawodnika(id);
+                    ZawodnicyRepository zr = new ZawodnicyRepository();
+                    zr.Wczytaj();
+                    var z = zr.PodajZawodnika(id);
 
-                txtImie.Text = z.Imie;
-                txtNazwisko.Text = z.Nazwisko;
-                txtKraj.Text = z.Kraj;
-                txtDataUr.Text = z.DataUrodzenia.ToString("dd-MM-yyyy");
-                txtWaga.Text = z.Waga.ToString();
-                txtWzrost.Text = z.Wzrost.ToString();
+                    txtImie.Text = z.Imie;
+                    txtNazwisko.Text = z.Nazwisko;
+                    txtKraj.Text = z.Kraj;
+                    txtDataUr.Text = z.DataUrodzenia.ToString("dd-MM-yyyy");
+                    txtWaga.Text = z.Waga.ToString();
+                    txtWzrost.Text = z.Wzrost.ToString();
+                    lblImieNazwisko.Text = z.ImieNazwisko;
+                }
+                else // jestesmy w trybie dodwania nowego zawodnika 
+                {
+                    btnUsun.Visible = false;
+                }
+               
             }
+
         }
 
         protected void btnZapisz_Click(object sender, EventArgs e)
@@ -46,7 +57,7 @@ namespace P02AplikacjaZawodnicy
             z.Waga = Convert.ToInt32(txtWaga.Text);
 
             if (string.IsNullOrEmpty(idString)) // jestesmy w trybie dodwania bo id w request jest puste 
-                zr.Dodaj(z);
+               zr.Dodaj(z);
             else // jezeli id nie jest puste to jestesmy w trybie edycji 
             {
                 int id = Convert.ToInt32(idString);
@@ -54,6 +65,14 @@ namespace P02AplikacjaZawodnicy
                 zr.Edytuj(z);
             }
 
+            Response.Redirect("ZawodnicyView.aspx");
+        }
+
+        protected void btnUsun_Click(object sender, EventArgs e)
+        {
+            string idString = Request["id"];
+            ZawodnicyRepository zr = new ZawodnicyRepository();
+            zr.Usun(Convert.ToInt32(idString));
             Response.Redirect("ZawodnicyView.aspx");
         }
     }

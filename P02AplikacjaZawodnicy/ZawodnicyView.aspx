@@ -158,7 +158,11 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Simple Table</h4>
+                                 
+                                <%--<a href="SzczegolyNowe.aspx" >Nowy zawodnik</a>--%>
+
+                                <button class="btn btn-primary btn-block" style="width:200px" onclick="window.location='SzczegolyNowe.aspx'">Nowy</button>
+
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -168,7 +172,7 @@
                       </th>
                                             <th>Kraj
                       </th>
-                                            <th>Data urodzenia
+                                            <th>Data ur
                       </th>
                                             <th >Waga 
                       </th>
@@ -183,7 +187,7 @@
                                                  </td>
                                                 <td><%=ZawodnicyData[i].Kraj %>
                                                     </td>
-                                                <td><%=ZawodnicyData[i].DataUrodzenia %>
+                                                <td><%=ZawodnicyData[i].DataUrodzenia.ToString("dd-MM-yyyy") %>
                                                 </td>
                                                 <td><%=ZawodnicyData[i].Waga %>
                                                  </td>
