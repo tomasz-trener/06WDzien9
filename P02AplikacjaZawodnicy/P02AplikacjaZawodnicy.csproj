@@ -178,7 +178,7 @@
     <Content Include="assets\scss\now-ui-dashboard\_tables.scss" />
     <Content Include="assets\scss\now-ui-dashboard\_typography.scss" />
     <Content Include="assets\scss\now-ui-dashboard\_variables.scss" />
-    <Content Include="backupBazy\db_zawodnicy_sql" />
+    <None Include="backupBazy\db_zawodnicy_sql.bak" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
