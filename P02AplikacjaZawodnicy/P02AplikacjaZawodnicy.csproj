@@ -90,9 +90,12 @@
     <Content Include="assets\js\plugins\perfect-scrollbar.jquery.min.js" />
     <Content Include="Default.aspx" />
     <Content Include="images\spinning-loading.gif" />
+    <Content Include="LogowanieView.aspx" />
+    <Content Include="RejestracjaView.aspx" />
     <Content Include="skryptyPomoniczne\ZawodnicyView.js" />
     <Content Include="SzczegolyNowe.aspx" />
     <Content Include="SzczegolyView.aspx" />
+    <Content Include="tajne\TrenerzyView.aspx" />
     <Content Include="Web.config" />
     <Content Include="ZawodnicyServer.aspx" />
     <Content Include="ZawodnicyView.aspx" />
@@ -105,7 +108,21 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LogowanieView.aspx.cs">
+      <DependentUpon>LogowanieView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogowanieView.aspx.designer.cs">
+      <DependentUpon>LogowanieView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RejestracjaView.aspx.cs">
+      <DependentUpon>RejestracjaView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RejestracjaView.aspx.designer.cs">
+      <DependentUpon>RejestracjaView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SzczegolyNowe.aspx.cs">
       <DependentUpon>SzczegolyNowe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -119,6 +136,13 @@
     </Compile>
     <Compile Include="SzczegolyView.aspx.designer.cs">
       <DependentUpon>SzczegolyView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tajne\TrenerzyView.aspx.cs">
+      <DependentUpon>TrenerzyView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tajne\TrenerzyView.aspx.designer.cs">
+      <DependentUpon>TrenerzyView.aspx</DependentUpon>
     </Compile>
     <Compile Include="ZawodnicyServer.aspx.cs">
       <DependentUpon>ZawodnicyServer.aspx</DependentUpon>
@@ -180,6 +204,7 @@
     <Content Include="assets\scss\now-ui-dashboard\_variables.scss" />
     <None Include="backupBazy\db_zawodnicy_sql.bak" />
     <None Include="packages.config" />
+    <Content Include="tajne\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

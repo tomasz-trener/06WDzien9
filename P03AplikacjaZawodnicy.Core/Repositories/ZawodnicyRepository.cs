@@ -117,7 +117,6 @@ namespace P03AplikacjaZawodnicy.Core.Repositories
 
         public void Strona(int s)
         {
-          
             Zawodnicy = Zawodnicy
                 .Skip((s - 1) * wielkoscStrony)
                 .Take(wielkoscStrony)

@@ -21,6 +21,12 @@
 
     <form id="form1" runat="server">
        
+        <asp:LoginStatus ID="LoginStatus1" runat="server" />
+
+       
+        <asp:LoginName ID="LoginName1" runat="server" />
+       
+        
         <div style="float:left; margin-right:10px">
              <asp:ListBox ID="lbDane" runat="server"></asp:ListBox>
         </div>
