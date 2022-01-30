@@ -89,9 +89,12 @@
     <Content Include="assets\js\plugins\chartjs.min.js" />
     <Content Include="assets\js\plugins\perfect-scrollbar.jquery.min.js" />
     <Content Include="Default.aspx" />
+    <Content Include="images\spinning-loading.gif" />
+    <Content Include="skryptyPomoniczne\ZawodnicyView.js" />
     <Content Include="SzczegolyNowe.aspx" />
     <Content Include="SzczegolyView.aspx" />
     <Content Include="Web.config" />
+    <Content Include="ZawodnicyServer.aspx" />
     <Content Include="ZawodnicyView.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +119,13 @@
     </Compile>
     <Compile Include="SzczegolyView.aspx.designer.cs">
       <DependentUpon>SzczegolyView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ZawodnicyServer.aspx.cs">
+      <DependentUpon>ZawodnicyServer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ZawodnicyServer.aspx.designer.cs">
+      <DependentUpon>ZawodnicyServer.aspx</DependentUpon>
     </Compile>
     <Compile Include="ZawodnicyView.aspx.cs">
       <DependentUpon>ZawodnicyView.aspx</DependentUpon>

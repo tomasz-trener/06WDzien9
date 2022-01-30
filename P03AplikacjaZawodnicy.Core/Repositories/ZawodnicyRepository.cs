@@ -10,37 +10,37 @@ namespace P03AplikacjaZawodnicy.Core.Repositories
 {
     public class ZawodnicyRepository
     {
-       
+
         public ZawodnikVM[] Zawodnicy;
 
 
 
-        
+
         public void Wczytaj()
         {
             Wczytaj(null);
         }
-        
+
         public void Wczytaj(string[] soc)
         {
             ModelBazyDanychDataContext db = new ModelBazyDanychDataContext();
-            Zawodnicy = db.Zawodnik.Select(x=>new ZawodnikVM(x.imie,x.nazwisko,soc)
+            Zawodnicy = db.Zawodnik.Select(x => new ZawodnikVM(x.imie, x.nazwisko, soc)
             {
                 Id_zawodnika = x.id_zawodnika,
-                Kraj =x.kraj,
-                DataUrodzenia =(DateTime)x.data_ur,
-                Waga= (int)x.waga,
+                Kraj = x.kraj,
+                DataUrodzenia = (DateTime)x.data_ur,
+                Waga = (int)x.waga,
                 Wzrost = (int)x.wzrost,
                 DataZatrudnieniaOd = (DateTime)x.dataZatrudnieniaOd,
                 DataZatrudnieniaDo = (DateTime)x.dataZatrudnieniaDo
 
             })
-                .ToArray();     
+                .ToArray();
         }
 
         public ZawodnikVM PodajZawodnika(int id)
         {
-           return Zawodnicy.FirstOrDefault(x => x.Id_zawodnika == id);
+            return Zawodnicy.FirstOrDefault(x => x.Id_zawodnika == id);
         }
 
         public void Dodaj(ZawodnikVM z)
@@ -78,7 +78,7 @@ namespace P03AplikacjaZawodnicy.Core.Repositories
         public void Usun(int id)
         {
             ModelBazyDanychDataContext db = new ModelBazyDanychDataContext();
-            var z =db.Zawodnik.FirstOrDefault(x => x.id_zawodnika == id);
+            var z = db.Zawodnik.FirstOrDefault(x => x.id_zawodnika == id);
 
             db.Zawodnik.DeleteOnSubmit(z);
             db.SubmitChanges();
@@ -95,7 +95,19 @@ namespace P03AplikacjaZawodnicy.Core.Repositories
 
             if (dataOd != null)
                 Zawodnicy = Zawodnicy.Where(x => x.DataZatrudnieniaOd >= dataOd && x.DataZatrudnieniaOd <= dataDo).ToArray();
+        }
 
+        public void Filtruj(string coSzukam)
+        {
+            coSzukam = coSzukam.ToLower();
+           Zawodnicy= Zawodnicy.Where(x =>
+                x.Imie.ToLower().Contains(coSzukam) ||
+                x.Nazwisko.ToLower().Contains(coSzukam) ||
+                x.Kraj.ToLower().Contains(coSzukam) ||
+                x.DataUrodzenia.ToString("ddMMyyyy").Contains(coSzukam) ||
+                x.Waga.ToString().Contains(coSzukam) ||
+                x.Wzrost.ToString().Contains(coSzukam)
+                ).ToArray();
         }
     }
 }

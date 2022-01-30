@@ -19,6 +19,7 @@
     <link href="../assets/css/now-ui-dashboard.css?v=1.3.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/demo/demo.css" rel="stylesheet" />
+
 </head>
 
 <body class="">
@@ -164,6 +165,7 @@
                                 <button class="btn btn-primary btn-block" style="width:200px" onclick="window.location='SzczegolyNowe.aspx'">Nowy</button>
 
                             </div>
+                            <img id="imgLadowanie" style="display:none;width: 200px; margin-left: 20px;" src="images/spinning-loading.gif" />
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
@@ -253,6 +255,7 @@
     <script src="../assets/js/now-ui-dashboard.min.js?v=1.3.0" type="text/javascript"></script>
     <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
     <script src="../assets/demo/demo.js"></script>
+    <script src="skryptyPomoniczne/ZawodnicyView.js"></script>
 </body>
 
 </html>
