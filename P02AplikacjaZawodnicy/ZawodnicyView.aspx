@@ -175,7 +175,7 @@
                                         <div class="col-md-2">
                                             <button id="btnLewo" class="btn btn-primary btn-block" style="width: 200px"><- </button>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-1">
                                             <input value="1" id="txtStrona" style="width: 50px;margin-top:15px" class="form-control">
                                         </div>
                                         <div class="col-md-2">

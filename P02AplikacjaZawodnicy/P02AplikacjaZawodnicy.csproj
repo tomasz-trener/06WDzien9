@@ -178,6 +178,7 @@
     <Content Include="assets\scss\now-ui-dashboard\_tables.scss" />
     <Content Include="assets\scss\now-ui-dashboard\_typography.scss" />
     <Content Include="assets\scss\now-ui-dashboard\_variables.scss" />
+    <Content Include="backupBazy\db_zawodnicy_sql" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -196,6 +197,7 @@
       <Name>P03AplikacjaZawodnicy.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
