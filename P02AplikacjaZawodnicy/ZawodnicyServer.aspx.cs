@@ -15,12 +15,17 @@ namespace P02AplikacjaZawodnicy
         protected void Page_Load(object sender, EventArgs e)
         {
             string coSzukam = Request["filtr"];
+            string poCzymSortuje = Request["sortowanie"];
+            string ktoraStrona = Request["strona"];
 
             ZawodnicyRepository zr = new ZawodnicyRepository();
 
             zr.Wczytaj();
             zr.Filtruj(coSzukam);
+            zr.Strona(Convert.ToInt32(ktoraStrona));
 
+            if (!string.IsNullOrEmpty(poCzymSortuje))
+                zr.Sortuj(poCzymSortuje);
             //  string wynik = string.Join("\n", zr.Zawodnicy.Select(x => x.ImieNazwisko));
 
             JavaScriptSerializer js = new JavaScriptSerializer(); // narzedzie, kore pozwala nam na serializacje dowolnyhc obiektow na string w formacie JSON

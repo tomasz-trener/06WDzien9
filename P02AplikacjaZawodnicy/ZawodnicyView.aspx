@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Now UI Dashboard by Creative Tim
-  </title>
+    </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -30,9 +30,9 @@
     -->
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text logo-mini">CT
-        </a>
+                </a>
                 <a href="http://www.creative-tim.com" class="simple-text logo-normal">Creative Tim
-        </a>
+                </a>
             </div>
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <ul class="nav">
@@ -159,25 +159,43 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                 
+
                                 <%--<a href="SzczegolyNowe.aspx" >Nowy zawodnik</a>--%>
 
-                                <button class="btn btn-primary btn-block" style="width:200px" onclick="window.location='SzczegolyNowe.aspx'">Nowy</button>
+                                <div>
+
+
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <button class="btn btn-primary btn-block" style="width: 200px" onclick="window.location='SzczegolyNowe.aspx'">Nowy</button>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button id="btnLewo" class="btn btn-primary btn-block" style="width: 200px"><- </button>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input value="1" id="txtStrona" style="width: 50px;margin-top:15px" class="form-control">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button id="btnPrawo" class="btn btn-primary btn-block" style="width: 200px">-> </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
 
                             </div>
-                            <img id="imgLadowanie" style="display:none;width: 200px; margin-left: 20px;" src="images/spinning-loading.gif" />
+                            <img id="imgLadowanie" style="display: none; width: 200px; margin-left: 20px;" src="images/spinning-loading.gif" />
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
-                                            <th>Imie i nazwisko
-                      </th>
-                                            <th>Kraj
-                      </th>
-                                            <th>Data ur
-                      </th>
-                                            <th >Waga 
-                      </th>
+                                            <th>Imie i nazwisko</th>
+                                            <th>Kraj</th>
+                                            <th>Data ur</th>
+                                            <th>Waga</th>
                                             <th>Wzrost</th>
                                         </thead>
                                         <tbody>
@@ -185,14 +203,14 @@
                                             <% for (int i = 0; i < ZawodnicyData.Length; i++)
                                                 {%>
                                             <tr>
-                                                <td><a href="SzczegolyNowe.aspx?id=<%=ZawodnicyData[i].Id_zawodnika %>"> <%=ZawodnicyData[i].ImieNazwisko %></a>
-                                                 </td>
+                                                <td><a href="SzczegolyNowe.aspx?id=<%=ZawodnicyData[i].Id_zawodnika %>"><%=ZawodnicyData[i].ImieNazwisko %></a>
+                                                </td>
                                                 <td><%=ZawodnicyData[i].Kraj %>
-                                                    </td>
+                                                </td>
                                                 <td><%=ZawodnicyData[i].DataUrodzenia.ToString("dd-MM-yyyy") %>
                                                 </td>
                                                 <td><%=ZawodnicyData[i].Waga %>
-                                                 </td>
+                                                </td>
                                                 <td><%=ZawodnicyData[i].Wzrost %></td>
                                             </tr>
                                             <%  } %>
@@ -211,15 +229,15 @@
                         <ul>
                             <li>
                                 <a href="https://www.creative-tim.com">Creative Tim
-                </a>
+                                </a>
                             </li>
                             <li>
                                 <a href="http://presentation.creative-tim.com">About Us
-                </a>
+                                </a>
                             </li>
                             <li>
                                 <a href="http://blog.creative-tim.com">Blog
-                </a>
+                                </a>
                             </li>
                         </ul>
                     </nav>
@@ -228,7 +246,7 @@
            
                         <script>
                             document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>
+                        </script>
                         , Designed by
            
                         <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by

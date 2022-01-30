@@ -13,7 +13,7 @@ namespace P03AplikacjaZawodnicy.Core.Repositories
 
         public ZawodnikVM[] Zawodnicy;
 
-
+        private const int wielkoscStrony = 5;
 
 
         public void Wczytaj()
@@ -36,6 +36,24 @@ namespace P03AplikacjaZawodnicy.Core.Repositories
 
             })
                 .ToArray();
+        }
+
+        public void Sortuj(string poCzymSortuje)
+        {
+            if (poCzymSortuje == "Imie i nazwisko")
+                Zawodnicy = Zawodnicy.OrderBy(x => x.ImieNazwisko).ToArray();
+
+            if (poCzymSortuje == "Kraj")
+                Zawodnicy = Zawodnicy.OrderBy(x => x.Kraj).ToArray();
+
+            if (poCzymSortuje == "Data ur")
+                Zawodnicy = Zawodnicy.OrderBy(x => x.DataUrodzenia).ToArray();
+
+            if (poCzymSortuje == "Waga")
+                Zawodnicy = Zawodnicy.OrderBy(x => x.Waga).ToArray();
+
+            if (poCzymSortuje == "Wzrost")
+                Zawodnicy = Zawodnicy.OrderBy(x => x.Wzrost).ToArray();
         }
 
         public ZawodnikVM PodajZawodnika(int id)
@@ -97,6 +115,14 @@ namespace P03AplikacjaZawodnicy.Core.Repositories
                 Zawodnicy = Zawodnicy.Where(x => x.DataZatrudnieniaOd >= dataOd && x.DataZatrudnieniaOd <= dataDo).ToArray();
         }
 
+        public void Strona(int s)
+        {
+          
+            Zawodnicy = Zawodnicy
+                .Skip((s - 1) * wielkoscStrony)
+                .Take(wielkoscStrony)
+                .ToArray();
+        }
         public void Filtruj(string coSzukam)
         {
             coSzukam = coSzukam.ToLower();

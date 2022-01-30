@@ -17,6 +17,9 @@ namespace P02AplikacjaZawodnicy
         {
             ZawodnicyRepository zr = new ZawodnicyRepository();
             zr.Wczytaj();
+            zr.Strona(1);
+
+
             ZawodnicyData = zr.Zawodnicy;
 
         }
