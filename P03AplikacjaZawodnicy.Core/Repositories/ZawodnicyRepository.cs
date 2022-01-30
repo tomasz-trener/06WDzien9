@@ -13,6 +13,8 @@ namespace P03AplikacjaZawodnicy.Core.Repositories
        
         public ZawodnikVM[] Zawodnicy;
 
+
+
         
         public void Wczytaj()
         {
@@ -28,7 +30,10 @@ namespace P03AplikacjaZawodnicy.Core.Repositories
                 Kraj =x.kraj,
                 DataUrodzenia =(DateTime)x.data_ur,
                 Waga= (int)x.waga,
-                Wzrost = (int)x.wzrost
+                Wzrost = (int)x.wzrost,
+                DataZatrudnieniaOd = (DateTime)x.dataZatrudnieniaOd,
+                DataZatrudnieniaDo = (DateTime)x.dataZatrudnieniaDo
+
             })
                 .ToArray();     
         }
@@ -77,6 +82,20 @@ namespace P03AplikacjaZawodnicy.Core.Repositories
 
             db.Zawodnik.DeleteOnSubmit(z);
             db.SubmitChanges();
+        }
+
+        public void Filtruj(DateTime? dataOd, DateTime? dataDo)
+        {
+            //Zawodnicy= Zawodnicy.Where(x => x.DataZatrudnieniaOd >= dataOd && x.DataZatrudnieniaDo <= dataDo).ToArray();
+            //if (dataOd != null)
+            //    Zawodnicy = Zawodnicy.Where(x => x.DataZatrudnieniaOd >= dataOd).ToArray();
+
+            //if (dataDo != null)
+            //    Zawodnicy = Zawodnicy.Where(x => x.DataZatrudnieniaDo <= dataDo).ToArray();
+
+            if (dataOd != null)
+                Zawodnicy = Zawodnicy.Where(x => x.DataZatrudnieniaOd >= dataOd && x.DataZatrudnieniaOd <= dataDo).ToArray();
+
         }
     }
 }

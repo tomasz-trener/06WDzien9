@@ -96,6 +96,10 @@ namespace P03AplikacjaZawodnicy.Core.Domains
 		
 		private System.Nullable<int> _waga;
 		
+		private System.Nullable<System.DateTime> _dataZatrudnieniaOd;
+		
+		private System.Nullable<System.DateTime> _dataZatrudnieniaDo;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -116,6 +120,10 @@ namespace P03AplikacjaZawodnicy.Core.Domains
     partial void OnwzrostChanged();
     partial void OnwagaChanging(System.Nullable<int> value);
     partial void OnwagaChanged();
+    partial void OndataZatrudnieniaOdChanging(System.Nullable<System.DateTime> value);
+    partial void OndataZatrudnieniaOdChanged();
+    partial void OndataZatrudnieniaDoChanging(System.Nullable<System.DateTime> value);
+    partial void OndataZatrudnieniaDoChanged();
     #endregion
 		
 		public Zawodnik()
@@ -279,6 +287,46 @@ namespace P03AplikacjaZawodnicy.Core.Domains
 					this._waga = value;
 					this.SendPropertyChanged("waga");
 					this.OnwagaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dataZatrudnieniaOd", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> dataZatrudnieniaOd
+		{
+			get
+			{
+				return this._dataZatrudnieniaOd;
+			}
+			set
+			{
+				if ((this._dataZatrudnieniaOd != value))
+				{
+					this.OndataZatrudnieniaOdChanging(value);
+					this.SendPropertyChanging();
+					this._dataZatrudnieniaOd = value;
+					this.SendPropertyChanged("dataZatrudnieniaOd");
+					this.OndataZatrudnieniaOdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dataZatrudnieniaDo", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> dataZatrudnieniaDo
+		{
+			get
+			{
+				return this._dataZatrudnieniaDo;
+			}
+			set
+			{
+				if ((this._dataZatrudnieniaDo != value))
+				{
+					this.OndataZatrudnieniaDoChanging(value);
+					this.SendPropertyChanging();
+					this._dataZatrudnieniaDo = value;
+					this.SendPropertyChanged("dataZatrudnieniaDo");
+					this.OndataZatrudnieniaDoChanged();
 				}
 			}
 		}

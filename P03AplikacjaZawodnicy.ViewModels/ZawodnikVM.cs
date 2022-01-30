@@ -13,10 +13,13 @@ namespace P03AplikacjaZawodnicy.ViewModels
         public int? Id_trenera; //dodanie ? powoduje, że typ jest nullable 
         public string Imie; // string jest domyślnie nullable ?
         public string Nazwisko;
-        public string Kraj;
+        public string Kraj { get; set; }
         public DateTime DataUrodzenia;
         public int Wzrost;
         public int Waga;
+
+        public DateTime DataZatrudnieniaOd;
+        public DateTime DataZatrudnieniaDo;
 
         private string[] soc;
 

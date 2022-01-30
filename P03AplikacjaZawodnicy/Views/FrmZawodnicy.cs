@@ -16,6 +16,7 @@ namespace P03AplikacjaZawodnicy.Views
     public partial class FrmZawodnicy : Form
     {
         FrmKolumny fk;
+        ZawodnicyRepository zr;
         public FrmZawodnicy()
         {
             InitializeComponent();
@@ -37,8 +38,26 @@ namespace P03AplikacjaZawodnicy.Views
                 zr.Wczytaj();
 
 
+            DateTime? dataZatrudnieniaOd = null;
+            if (chbDataZatrudnieniaOd.Checked)
+                dataZatrudnieniaOd = dtpDataZatrudnieniaOd.Value.Date;
+
+            DateTime? dataZatrudnieniaDo = null;
+            if (chbDataZatrudnieniaDo.Checked)
+                dataZatrudnieniaDo = dtpDataZatrudnieniaDo.Value.Date;
+
+            zr.Filtruj(dataZatrudnieniaOd, dataZatrudnieniaDo);
+            
+            // tutaj bindowanie danych od listboxa 
             lbDane.DataSource = zr.Zawodnicy;
             lbDane.DisplayMember = "WybraneKolumny";
+
+            //dodamy opcje bindowania danych od datagrid view 
+
+            dgvDane.DataSource = zr.Zawodnicy;
+
+            dgvDane.Columns["WybraneKolumny"].Visible = false;
+            dgvDane.Columns["CalyRekord"].Visible = false;
         }
 
         private void btnWczytaj_Click(object sender, EventArgs e)
@@ -79,6 +98,11 @@ namespace P03AplikacjaZawodnicy.Views
 
             string sciezkaDoFolderu = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
             webBrowser1.Navigate($@"{sciezkaDoFolderu}\{nazwaPliku}");
+        }
+
+        private void btnSzukaj_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
